@@ -1,0 +1,64 @@
+img {
+  width: 10px;
+  height: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 50px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#maze-container {
+  /* border: 1px solid black; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 10px;
+  height: 10px;
+  /* border: 1px solid black; */
+  background-color: white;
+}
+
+.wall {
+  background-color: black;
+}
+
+#rat {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#food {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.crossed {
+  background-color: rgba(13, 255, 0, 0.462);
+}
