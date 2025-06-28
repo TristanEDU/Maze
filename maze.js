@@ -26,14 +26,10 @@ function createMaze() {
       cell.classList.add("cell");
 
       cell.setAttribute("data-position", `${i}-${j}`);
-      
-
 
       if (mazearray[i][j] == 0) {
         cell.classList.add("wall");
-      
       }
-      
 
       if (i == 0 && j == 0) {
         mazearray[i][j] = 2;
@@ -97,21 +93,17 @@ document.addEventListener("keydown", function (e) {
   let foodtop = food.offsetTop;
   let ratposition = getratposition();
 
+  console.log(mazearray[ratposition[0]][ratposition[1] + 1] == 1);
+  console.log(mazearray);
 
-console.log(mazearray[ratposition[0]][ratposition[1] + 1] == 1);
-console.log(mazearray);
-
-
-// for (let i = 0; i < mazearray.length; i++) {
-//   for (let j = 0; j < mazearray[i].length; j++) {
-//     if (i == 2 && j == 2) {
-//       const targetCell = getratposition[i][j] == 2;
-//       if (targetCell) targetCell.classList.add("crossed");
-//     }
-//   }
-// }
-
-
+  // for (let i = 0; i < mazearray.length; i++) {
+  //   for (let j = 0; j < mazearray[i].length; j++) {
+  //     if (i == 2 && j == 2) {
+  //       const targetCell = getratposition[i][j] == 2;
+  //       if (targetCell) targetCell.classList.add("crossed");
+  //     }
+  //   }
+  // }
 
   if (
     e.key == "ArrowRight" &&
@@ -121,13 +113,14 @@ console.log(mazearray);
     ratleft += 10;
     rat.style.left = ratleft + "px";
     mazearray[ratposition[0]][ratposition[1]] = 1;
-    mazearray[ratposition[0]][ratposition[1] + 1] = 2; 
+    mazearray[ratposition[0]][ratposition[1] + 1] = 2;
     console.log(ratleft, rattop);
   }
 
   getratposition();
 
-  if (e.key == "ArrowLeft"  &&
+  if (
+    e.key == "ArrowLeft" &&
     ratleft < (mazearray.length - 1) * 10 &&
     mazearray[ratposition[0]][ratposition[1] - 1] == 1
   ) {
@@ -139,7 +132,8 @@ console.log(mazearray);
       // console.log(mazearray);
     }
   }
-  if (e.key == "ArrowUp" &&
+  if (
+    e.key == "ArrowUp" &&
     ratleft < (mazearray.length - 1) * 10 &&
     mazearray[ratposition[0] - 1][ratposition[1]] == 1
   ) {
@@ -151,9 +145,10 @@ console.log(mazearray);
       // console.log(mazearray);
     }
   }
-  if (e.key == "ArrowDown" &&
+  if (
+    e.key == "ArrowDown" &&
     ratleft < (mazearray.length + 1) * 10 &&
-    mazearray[ratposition[0]  + 1][ratposition[1]] == 1
+    mazearray[ratposition[0] + 1][ratposition[1]] == 1
   ) {
     rattop += 10;
     rat.style.top = rattop + "px";
@@ -161,13 +156,12 @@ console.log(mazearray);
       mazearray[ratposition[0]][ratposition[1]] = 1;
       mazearray[ratposition[0] + 1][ratposition[1]] = 2;
       // console.log(mazearray);
-    } 
-    
+    }
   }
-// if (i == 2 && j == 2) {
-//         cell.classList.add("crossed");
-//       }
-highlightRatCell();
+  // if (i == 2 && j == 2) {
+  //         cell.classList.add("crossed");
+  //       }
+  highlightRatCell();
 });
 
 function highlightRatCell() {
@@ -181,7 +175,19 @@ function highlightRatCell() {
   // Select the cell with the matching data-position
   const cell = document.querySelector(`[data-position="${i}-${j}"]`);
   if (cell) {
-      console.log(cell);
-    cell.classList.add('crossed');
+    console.log(cell);
+    cell.classList.add("crossed");
   }
 }
+
+window.addEventListener(
+  "keydown",
+  function (e) {
+    // Check if the pressed key is an arrow key (keyCode values for arrow keys)
+    if (e.keyCode >= 37 && e.keyCode <= 40) {
+      // Prevent the default scrolling behavior
+      e.preventDefault();
+    }
+  },
+  false
+);
