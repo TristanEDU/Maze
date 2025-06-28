@@ -191,3 +191,20 @@ window.addEventListener(
   },
   false
 );
+
+// Add event listeners for mobile controls to simulate arrow key presses
+function triggerArrowKey(key) {
+  document.dispatchEvent(new KeyboardEvent("keydown", { key }));
+}
+
+const upBtn = document.getElementById("arrow-up");
+const downBtn = document.getElementById("arrow-down");
+const leftBtn = document.getElementById("arrow-left");
+const rightBtn = document.getElementById("arrow-right");
+
+if (upBtn && downBtn && leftBtn && rightBtn) {
+  upBtn.addEventListener("click", () => triggerArrowKey("ArrowUp"));
+  downBtn.addEventListener("click", () => triggerArrowKey("ArrowDown"));
+  leftBtn.addEventListener("click", () => triggerArrowKey("ArrowLeft"));
+  rightBtn.addEventListener("click", () => triggerArrowKey("ArrowRight"));
+}
