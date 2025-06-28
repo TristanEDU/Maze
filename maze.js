@@ -214,3 +214,5 @@ if (upBtn && downBtn && leftBtn && rightBtn) {
   leftBtn.addEventListener("click", () => triggerArrowKey("ArrowLeft"));
   rightBtn.addEventListener("click", () => triggerArrowKey("ArrowRight"));
 }
+
+// document.getElementById("solve-btn").addEventListener("click", moveRatNearFood);
