@@ -2,6 +2,8 @@ import { level1 } from "./modules/mazeMatrix.js";
 // console.log(level1);
 
 let mazearray = level1;
+window.mazearray = mazearray;
+
 let maze = document.getElementById("maze-container");
 let rat = document.getElementById("rat");
 let food = document.getElementById("food");
@@ -158,6 +160,10 @@ document.addEventListener("keydown", function (e) {
       // console.log(mazearray);
     }
   }
+
+  if (ratleft == foodleft) {
+    alert("Great job! 2 will bring you this much closer to escape!");
+  }
   // if (i == 2 && j == 2) {
   //         cell.classList.add("crossed");
   //       }
@@ -208,3 +214,5 @@ if (upBtn && downBtn && leftBtn && rightBtn) {
   leftBtn.addEventListener("click", () => triggerArrowKey("ArrowLeft"));
   rightBtn.addEventListener("click", () => triggerArrowKey("ArrowRight"));
 }
+
+// document.getElementById("solve-btn").addEventListener("click", moveRatNearFood);
